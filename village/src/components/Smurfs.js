@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import Smurf from "./Smurf";
@@ -6,7 +6,6 @@ import Smurf from "./Smurf";
 const Smurfs = props => {
   return (
     <div className="smurfs">
-      <h1>Smurf Village</h1>
       <ul>
         {props.smurfs.map(smurf => {
           return (

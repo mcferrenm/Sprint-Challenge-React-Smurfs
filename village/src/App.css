@@ -1,26 +1,48 @@
 .App {
+  min-width: 850px;
+}
+
+button:active {
+  background: rgb(116, 116, 116);
 }
 
 .nav {
-  padding: 3em;
+  padding: 2em;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
   margin: 0 auto 3em;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  background: #fff;
 }
 
-.nav a {
+.nav h1 {
+  font-size: 5em;
+  margin: 0;
+  text-align: center;
+}
+
+.nav .navlinks {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navlinks a {
   background: #333;
-  color: white;
+  color: #eeeeee;
   padding: 1em;
   border-radius: 3px;
   cursor: pointer;
   text-decoration: none;
-
-  font-size: 2em;
+  margin-left: 5px;
+  font-size: 1em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  min-width: 80px;
+  text-align: center;
 }
 
-.nav a:hover {
+.navlinks a:hover {
   background: #444;
 }
 
@@ -28,12 +50,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.smurfs h1 {
-  font-size: 5em;
-  margin: 0;
-  margin-bottom: 0.5em;
 }
 
 .smurfs ul {
@@ -58,6 +74,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 1em 5em;
   margin-bottom: 30px;
+
+  background: #fff;
 }
 
 .smurf-details {
@@ -66,18 +84,60 @@
   flex-direction: column;
 }
 
+.smurf-details button {
+  background: #333;
+  color: white;
+  padding: 1em;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 1em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  min-width: 80px;
+}
+
+.smurf-details button:hover {
+  background: #444;
+}
+
+.smurf-form {
+  display: flex;
+  justify-content: center;
+}
+
 .smurf-form form {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
   height: 300px;
+  width: 260px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  background: #fff;
 }
 
 .smurf-form input {
-  padding: 1em;
+  padding: 1em 1em 0.4em 0.4em;
   border: none;
-  border-bottom: 1px solid coral;
+  border-bottom: 1px solid #666;
   margin-right: 1em;
   font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.smurf-form button {
+  background: #333;
+  color: #eeeeee;
+  padding: 0.5em 1.5em;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 1em;
+}
+
+.smurf-form button:hover {
+  background: #444;
 }
