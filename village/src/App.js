@@ -24,7 +24,8 @@ class App extends Component {
         name: "",
         age: "",
         height: ""
-      }
+      },
+      isUpdating: false
     };
   }
 
@@ -71,7 +72,8 @@ class App extends Component {
         name: smurf.name,
         age: smurf.age,
         height: smurf.height
-      }
+      },
+      isUpdating: true
     });
   };
 
@@ -122,6 +124,7 @@ class App extends Component {
               handleInputChange={this.handleInputChange}
               updateSmurfs={this.updateSmurfs}
               smurf={this.state.smurf}
+              isUpdating={this.state.isUpdating}
             />
           )}
         />

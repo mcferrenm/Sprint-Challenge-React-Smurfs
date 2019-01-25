@@ -22,7 +22,7 @@ const SmurfForm = props => {
           value={props.smurf.height}
           name="height"
         />
-        <button type="submit">Add to the village</button>
+        <button type="submit">{props.isUpdating ? "Update" : "Add"}</button>
       </form>
     </div>
   );
