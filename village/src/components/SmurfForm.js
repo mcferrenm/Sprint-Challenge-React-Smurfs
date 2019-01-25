@@ -1,7 +1,6 @@
 import React from "react";
 
 const SmurfForm = props => {
-  console.log(props);
   return (
     <div className="SmurfForm">
       <form onSubmit={props.addSmurf}>

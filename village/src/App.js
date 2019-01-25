@@ -61,8 +61,18 @@ class App extends Component {
     //   .catch(err => console.log(err));
   };
 
-  editSmurf = () => {
+  editSmurf = id => {
     this.props.history.push("/smurf-form");
+
+    const smurf = this.state.smurfs[id];
+
+    this.setState({
+      smurf: {
+        name: smurf.name,
+        age: smurf.age,
+        height: smurf.height
+      }
+    });
   };
 
   addSmurf = event => {
