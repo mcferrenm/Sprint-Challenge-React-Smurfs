@@ -6,6 +6,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import SmurfDetails from "./components/SmurfDetails";
 
 const BASE_URL = "http://localhost:3333";
 
@@ -117,6 +118,17 @@ class App extends Component {
           path="/"
           render={props => (
             <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              editSmurf={this.editSmurf}
+            />
+          )}
+        />
+        <Route
+          path="/smurf/:id"
+          render={props => (
+            <SmurfDetails
               {...props}
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
