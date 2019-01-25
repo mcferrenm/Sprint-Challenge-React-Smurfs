@@ -66,7 +66,9 @@ class App extends Component {
       .then(res => {
         this.setState(() => ({ smurfs: res.data }));
         this.props.history.push("/");
-        this.setState(CLEARED_SMURF);
+        this.setState({
+          smurf: CLEARED_SMURF
+        });
       })
       .catch(err => console.log(err));
   };
@@ -92,8 +94,18 @@ class App extends Component {
 
     this.postSmurfs(this.state.smurf);
 
-    this.setState(CLEARED_SMURF);
+    this.setState({
+      smurf: CLEARED_SMURF
+    });
 
+    this.props.history.push("/");
+  };
+
+  cancelEdit = () => {
+    this.setState({
+      smurf: CLEARED_SMURF,
+      isUpdating: false
+    });
     this.props.history.push("/");
   };
 
@@ -146,6 +158,7 @@ class App extends Component {
               handleInputChange={this.handleInputChange}
               isUpdating={this.state.isUpdating}
               updateSmurf={this.updateSmurf}
+              cancelEdit={this.cancelEdit}
             />
           )}
         />
