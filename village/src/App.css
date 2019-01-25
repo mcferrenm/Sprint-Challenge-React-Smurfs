@@ -32,6 +32,7 @@
 .smurfs h1 {
   font-size: 5em;
   margin: 0;
+  margin-bottom: 10px;
 }
 
 .smurfs ul {
@@ -50,6 +51,16 @@
 }
 
 .smurf {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 1em 5em;
+  margin-bottom: 30px;
+}
+
+.smurf-details {
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -36,7 +36,7 @@ const SmurfForm = props => {
           name="height"
         />
         <button type="submit">{props.isUpdating ? "Update" : "Add"}</button>
-        {props.isUpdating && <button onClick={cancelEdit}>Cancel</button>}
+        <button onClick={cancelEdit}>Cancel</button>
       </form>
     </div>
   );
