@@ -5,7 +5,7 @@ import Smurf from "./Smurf";
 const SmurfDetails = props => {
   const { id } = props.match.params;
 
-  const smurf = props.smurfs[id];
+  const smurf = props.smurfs.find(smurf => `${smurf.id}` === id);
 
   if (!smurf) return <h2>Cannot find that smurf!</h2>;
 

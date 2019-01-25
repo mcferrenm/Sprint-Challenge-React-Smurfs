@@ -80,7 +80,7 @@ class App extends Component {
   editSmurf = id => {
     this.props.history.push("/smurf-form");
 
-    const smurf = this.state.smurfs[id];
+    const smurf = this.state.smurfs.find(smurf => smurf.id === id);
 
     this.setState({
       smurf: {
