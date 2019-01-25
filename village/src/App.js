@@ -42,10 +42,17 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  postSmurfs = smurf => {
+  addSmurf = () => {
     axios
-      .post(`${BASE_URL}/smurfs`, smurf)
-      .then(res => this.setState(() => ({ smurfs: res.data })))
+      .post(`${BASE_URL}/smurfs`, this.state.smurf)
+      .then(res => {
+        this.setState(() => ({ smurfs: res.data }));
+        this.setState({
+          smurf: CLEARED_SMURF
+        });
+
+        this.props.history.push("/");
+      })
       .catch(err => console.log(err));
   };
 
@@ -91,16 +98,6 @@ class App extends Component {
       },
       isUpdating: true
     });
-  };
-
-  addSmurf = () => {
-    this.postSmurfs(this.state.smurf);
-
-    this.setState({
-      smurf: CLEARED_SMURF
-    });
-
-    this.props.history.push("/");
   };
 
   cancelEdit = () => {
