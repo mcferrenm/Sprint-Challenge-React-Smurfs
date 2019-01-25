@@ -9,11 +9,22 @@ import Smurfs from "./components/Smurfs";
 
 const BASE_URL = "http://localhost:3333";
 
+const CLEARED_SMURF = {
+  name: "",
+  age: "",
+  height: ""
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      smurf: {
+        name: "",
+        age: "",
+        height: ""
+      }
     };
   }
 
@@ -35,11 +46,45 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteSmurfs = id => {
+  deleteSmurf = id => {
     axios
       .delete(`${BASE_URL}/smurfs/${id}`)
       .then(res => this.setState(() => ({ smurfs: res.data })))
       .catch(err => console.log(err));
+  };
+
+  updateSmurfs = (id, smurf) => {
+    console.log(id, smurf);
+    // axios
+    //   .put(`${BASE_URL}/smurfs/${id}`, smurf)
+    //   .then(res => this.setState(() => ({ smurfs: res.data })))
+    //   .catch(err => console.log(err));
+  };
+
+  editSmurf = id => {
+    console.log(id);
+  };
+
+  addSmurf = event => {
+    event.preventDefault();
+
+    this.postSmurfs(this.state.smurf);
+
+    this.setState(CLEARED_SMURF);
+
+    this.props.history.push("/");
+  };
+
+  handleInputChange = e => {
+    e.persist();
+    this.setState(prevState => {
+      return {
+        smurf: {
+          ...prevState.smurf,
+          [e.target.name]: e.target.value
+        }
+      };
+    });
   };
 
   render() {
@@ -53,14 +98,21 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
-              deleteSmurfs={this.deleteSmurfs}
+              deleteSmurf={this.deleteSmurf}
+              editSmurf={this.editSmurf}
             />
           )}
         />
         <Route
           path="/smurf-form"
           render={props => (
-            <SmurfForm {...props} postSmurfs={this.postSmurfs} />
+            <SmurfForm
+              {...props}
+              addSmurf={this.addSmurf}
+              handleInputChange={this.handleInputChange}
+              updateSmurfs={this.updateSmurfs}
+              smurf={this.state.smurf}
+            />
           )}
         />
       </div>
