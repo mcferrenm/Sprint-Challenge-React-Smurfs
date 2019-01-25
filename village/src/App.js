@@ -56,11 +56,18 @@ class App extends Component {
   };
 
   updateSmurf = id => {
-    console.log(id);
-    // axios
-    //   .put(`${BASE_URL}/smurfs/${id}`, smurf)
-    //   .then(res => this.setState(() => ({ smurfs: res.data })))
-    //   .catch(err => console.log(err));
+    const smurf = {
+      ...this.state.smurf
+    };
+
+    axios
+      .put(`${BASE_URL}/smurfs/${id}`, smurf)
+      .then(res => {
+        this.setState(() => ({ smurfs: res.data }));
+        this.props.history.push("/");
+        this.setState(CLEARED_SMURF);
+      })
+      .catch(err => console.log(err));
   };
 
   editSmurf = id => {
