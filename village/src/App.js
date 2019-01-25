@@ -23,7 +23,8 @@ class App extends Component {
       smurf: {
         name: "",
         age: "",
-        height: ""
+        height: "",
+        id: ""
       },
       isUpdating: false
     };
@@ -54,8 +55,8 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  updateSmurfs = (id, smurf) => {
-    console.log(id, smurf);
+  updateSmurf = id => {
+    console.log(id);
     // axios
     //   .put(`${BASE_URL}/smurfs/${id}`, smurf)
     //   .then(res => this.setState(() => ({ smurfs: res.data })))
@@ -71,7 +72,8 @@ class App extends Component {
       smurf: {
         name: smurf.name,
         age: smurf.age,
-        height: smurf.height
+        height: smurf.height,
+        id: smurf.id
       },
       isUpdating: true
     });
@@ -120,11 +122,11 @@ class App extends Component {
           render={props => (
             <SmurfForm
               {...props}
+              smurf={this.state.smurf}
               addSmurf={this.addSmurf}
               handleInputChange={this.handleInputChange}
-              updateSmurfs={this.updateSmurfs}
-              smurf={this.state.smurf}
               isUpdating={this.state.isUpdating}
+              updateSmurf={this.updateSmurf}
             />
           )}
         />

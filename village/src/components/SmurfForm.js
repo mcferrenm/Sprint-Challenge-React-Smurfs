@@ -1,9 +1,18 @@
 import React from "react";
 
 const SmurfForm = props => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (props.isUpdating) {
+      props.updateSmurf(props.smurf.id);
+    } else {
+      props.addSmurf();
+    }
+  }
+
   return (
     <div className="SmurfForm">
-      <form onSubmit={props.addSmurf}>
+      <form onSubmit={handleSubmit}>
         <input
           onChange={props.handleInputChange}
           placeholder="name"
