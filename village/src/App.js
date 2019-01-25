@@ -112,7 +112,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        <Nav isUpdating={this.state.isUpdating} />
         <Route
           exact
           path="/"

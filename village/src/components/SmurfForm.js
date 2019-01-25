@@ -15,7 +15,7 @@ const SmurfForm = props => {
   }
 
   return (
-    <div className="SmurfForm">
+    <div className="smurf-form">
       <form onSubmit={handleSubmit}>
         <input
           onChange={props.handleInputChange}

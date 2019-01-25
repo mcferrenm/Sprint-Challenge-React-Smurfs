@@ -6,12 +6,12 @@ import Smurf from "./Smurf";
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <div className="smurfs">
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Link to={`/smurf/${smurf.id}`}>
+              <Link to={`/smurf/${smurf.id}`} key={smurf.id}>
                 <Smurf
                   name={smurf.name}
                   id={smurf.id}
