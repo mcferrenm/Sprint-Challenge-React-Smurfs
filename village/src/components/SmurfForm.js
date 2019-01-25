@@ -10,6 +10,10 @@ const SmurfForm = props => {
     }
   }
 
+  function cancelEdit() {
+    props.history.push("/");
+  }
+
   return (
     <div className="SmurfForm">
       <form onSubmit={handleSubmit}>
@@ -32,6 +36,7 @@ const SmurfForm = props => {
           name="height"
         />
         <button type="submit">{props.isUpdating ? "Update" : "Add"}</button>
+        {props.isUpdating && <button onClick={cancelEdit}>Cancel</button>}
       </form>
     </div>
   );
