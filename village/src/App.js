@@ -61,8 +61,8 @@ class App extends Component {
     //   .catch(err => console.log(err));
   };
 
-  editSmurf = id => {
-    console.log(id);
+  editSmurf = () => {
+    this.props.history.push("/smurf-form");
   };
 
   addSmurf = event => {
