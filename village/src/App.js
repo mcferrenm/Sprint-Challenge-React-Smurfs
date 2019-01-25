@@ -5,6 +5,8 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 
+const BASE_URL = "http://localhost:3333";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,16 +19,27 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
+    this.getSmurfs();
+  }
+
+  getSmurfs = () => {
     axios
-      .get("http://localhost:3333/smurfs")
+      .get(`${BASE_URL}/smurfs`)
       .then(res => this.setState(() => ({ smurfs: res.data })))
       .catch(err => console.log(err));
-  }
+  };
+
+  postSmurfs = smurf => {
+    axios
+      .post(`${BASE_URL}/smurfs`, smurf)
+      .then(res => this.setState(() => ({ smurfs: res.data })))
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm postSmurfs={this.postSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
